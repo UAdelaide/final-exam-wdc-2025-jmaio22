@@ -16,8 +16,8 @@
 
   createApp({
     async setup() {
-    
-      const url = "https://dog.ceo/api/breeds/image/random";
+          let message;
+        const url = "https://dog.ceo/api/breeds/image/random";
       try {
           const response = await fetch(url);
           if (!response.ok) {
