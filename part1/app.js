@@ -50,6 +50,25 @@ let db;
     // insert test data into db
     await db.execute(`
 INSERT INTO Users (username, email, password_hash, role) VALUES ('alice123', 'alice@example.com', 'hashed123', 'owner');
+INSERT INTO Users (username, email, password_hash, role) VALUES ('bobwalker', 'bob@example.com', 'hashed456', 'walker');
+INSERT INTO Users (username, email, password_hash, role) VALUES ('carol123', 'carol@example.com', 'hashed789', 'owner');
+INSERT INTO Users (username, email, password_hash, role) VALUES ('bobbert12', 'bbb@example.com', 'hashed000', 'walker');
+INSERT INTO Users (username, email, password_hash, role) VALUES ('idontknow', 'hello@example.com', 'hashed111', 'walker');
+INSERT INTO Dogs (owner_id, name, size) SELECT user_id, 'Max' , 'medium' FROM Users WHERE username = 'alice123';
+INSERT INTO Dogs (owner_id, name, size) SELECT user_id, 'Bella' , 'small' FROM Users WHERE username = 'carol123';
+INSERT INTO Dogs (owner_id, name, size) SELECT user_id, 'Teddy' , 'small' FROM Users WHERE username = 'alice123';
+INSERT INTO Dogs (owner_id, name, size) SELECT user_id, 'Podgy' , 'small' FROM Users WHERE username = 'alice123';
+INSERT INTO Dogs (owner_id, name, size) SELECT user_id, 'Rupert' , 'large' FROM Users WHERE username = 'carol123';
+INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
+SELECT dog_id, '2025-06-10 08:00:00' , '30', 'Parklands', 'open' FROM Dogs WHERE name = 'Max' AND size = 'medium';
+INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
+SELECT dog_id, '2025-06-10 09:30:00' , '45', 'Beachside Ave', 'accepted' FROM Dogs WHERE name = 'Bella' AND size = 'small';
+INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
+SELECT dog_id, '2025-06-10 06:30:00' , '30', 'Rymil Park', 'completed' FROM Dogs WHERE name = 'Podgy' AND size = 'small';
+INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
+SELECT dog_id, '2025-06-10 09:45:00' , '60', 'Victoria Park', 'open' FROM Dogs WHERE name = 'Teddy' AND size = 'small';
+INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
+SELECT dog_id, '2025-09-10 02:30:00' , '10', 'West Beach', 'cancelled' FROM Dogs WHERE name = 'Rupert' AND size = 'large';
     `);
   } catch (err) {
     console.error('Error setting up database.', err);
