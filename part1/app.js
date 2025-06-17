@@ -152,7 +152,8 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             let [completed_walks] = await sqldb.query(`SELECT COUNT(walker_id) AS completed_walks FROM WalkApplications JOIN WalkRequests ON WalkApplications.request_id = WalkRequests.request_id WHERE WalkRequests.status = 'completed' AND WalkApplications.status = 'accepted' AND WalkApplications.walker_id = ${walker.user_id};`);
             let result = {
               "walker_username": walker.username,
-              "total_ratings": 
+              "total_ratings": total_ratings,
+              "average_rating": 
             };
         }
         await db.end();
