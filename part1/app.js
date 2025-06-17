@@ -147,13 +147,13 @@ SELECT COUNT(walker_id) AS value FROM WalkApplications JOIN WalkRequests ON Walk
         }
         await db.end();
         // await all sql queries then extract their values
-        const results = await Promise.all(promises);
-        for (let i = 0; i < results.length; i++) {
-          results[i] = results[i][0][0].value;
+        const promise_results = await Promise.all(promises);
+        for (let i = 0; i < promise_results.length; i++) {
+          promise_results[i] = results[i][0][0].value;
         }
 
         for (let i = 0; i < walkers.length; i++) {
-          
+
         }
         console.log(test2);
         res.json(test2);
