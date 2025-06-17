@@ -134,7 +134,9 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             for (let rating of tempratings) {
                 ratings.push(rating.rating);
             }
-            
+            for (let rating of ratings) {
+                
+            }
             if (ratings.length === 0) {
                 ratings = null;
             }
