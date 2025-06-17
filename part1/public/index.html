@@ -4,12 +4,6 @@
     <title>Express</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-</head>
-    <body>
-        <p>test</p>
-        <div v-if="test" id="app">{{ test }}</div>
-    </body>
-</html>
 <script>
     const { createApp, ref, onMounted } = Vue
     createApp({
@@ -36,3 +30,9 @@
         }
     });
 </script>
+</head>
+    <body>
+        <p>test</p>
+        <div v-if="test" id="app">{{ test }}</div>
+    </body>
+</html>
