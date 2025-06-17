@@ -107,7 +107,7 @@ app.get('/api/walkrequests/open', async function(req, res, next) {
         await db.end();
         res.json(dogs);
     } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch dogs' });
+    res.status(500).json({ error: 'Failed to fetch open walk requests' });
   }
 });
 
