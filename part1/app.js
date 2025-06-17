@@ -135,11 +135,14 @@ app.get('/api/walkers/summary', async function(req, res, next) {
                 ratings.push(rating.rating);
             }
             let sum = 0;
+            let average_rating = 0;
             for (let rating of ratings) {
               sum += rating;
             }
             if (ratings.length === 0) {
-                ratings = null;
+                average_rating = null;
+            } else {
+              average_rating = 
             }
             console.log(ratings);
         }
