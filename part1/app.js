@@ -147,7 +147,7 @@ app.get('/api/walkers/summary', async function(req, res, next) {
               average_rating = sum / ratings.length;
             }
             // get completed walks
-            let 
+            let [completed_walks] = await sqldb.query(`SELECT COUNT(walker_id) FROM WalkRatings WHERE walker_id = ${walker.user_id};`);
         }
         await db.end();
         res.json(walkers);
