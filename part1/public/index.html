@@ -7,7 +7,7 @@
 </head>
     <body>
         <p>test</p>
-        <div id="app">{{ message }}</div>
+        <div id="app">{{ test }}</div>
     </body>
 </html>
 <script>
@@ -23,6 +23,7 @@
         }
     }).mount('#app')
 
+    const test = ref('');
     onMounted(async () => {
         const url = "https://dog.ceo/api/breeds/image/random";
         try {
@@ -31,7 +32,7 @@
                 throw new Error(response.status);
             }
             const dog = await response.json();
-            message.value = dog;
+            test.value = dog;
         } catch(error) {
             // message = ref('couldnt get dog image :(');
         }
