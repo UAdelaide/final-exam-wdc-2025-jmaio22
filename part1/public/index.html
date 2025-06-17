@@ -18,7 +18,8 @@
     async setup() {
       const url = "https://dog.ceo/api/breeds/image/random";
       try {
-          
+          const response = await fetch(url);
+          if (!response.ok)
       } catch(error) {
         message = ref('couldnt get dog image :(');
       }
