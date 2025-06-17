@@ -28,7 +28,8 @@ let db;
     const connection = await mysql.createConnection({
       host: '127.0.0.1',
       user: 'root',
-      password: ''
+      password: '',
+      multipleStatements: true
     });
 
     // create dogwalk db
@@ -42,7 +43,8 @@ let db;
       host: '127.0.0.1',
       user: 'root',
       password: '',
-      database: 'DogWalkService'
+      database: 'DogWalkService',
+      multipleStatements: true
     });
 
     // insert test data into db
