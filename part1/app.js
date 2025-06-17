@@ -104,9 +104,9 @@ app.get('/api/walkrequests/open', async function(req, res, next) {
         database: 'DogWalkService',
         multipleStatements: true
         });
-        const [dogs] = await sqldb.query("SELECT request_id, Dogs.name AS dog_name, requested_time, duration_minutes, location, Users.username AS owner_username FROM WalkRequests JOIN Dogs ON Dogs.dog_id = WalkRequests.dog_id  JOIN Users ON Users.user_id = Dogs.owner_id WHERE WalkRequests.status = 'open';");
+        const [requests] = await sqldb.query("SELECT request_id, Dogs.name AS dog_name, requested_time, duration_minutes, location, Users.username AS owner_username FROM WalkRequests JOIN Dogs ON Dogs.dog_id = WalkRequests.dog_id  JOIN Users ON Users.user_id = Dogs.owner_id WHERE WalkRequests.status = 'open';");
         await db.end();
-        res.json(dogs);
+        res.json(requests);
     } catch (err) {
     res.status(500).json({ error: 'Failed to fetch open walk requests' });
   }
@@ -122,9 +122,9 @@ app.get('/api/walkers/summary', async function(req, res, next) {
         database: 'DogWalkService',
         multipleStatements: true
         });
-        const [dogs] = await sqldb.query('SELECT * FROM Users WHERE ;');
+        const [walkers] = await sqldb.query("SELECT * FROM Users WHERE role = 'walker';");
         await db.end();
-        res.json(dogs);
+        res.json(walkers);
     } catch (err) {
     res.status(500).json({ error: 'Failed to fetch dogs' });
   }
