@@ -126,7 +126,7 @@ app.get('/api/walkers/summary', async function(req, res, next) {
         const [walkers] = await sqldb.query("SELECT * FROM Users WHERE role = 'walker';");
         await db.end();
         for (let walker of walkers) {
-            console.log(walker);
+            console.log(walker.name);
         }
         res.json(walkers);
     } catch (err) {
