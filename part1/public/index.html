@@ -7,8 +7,7 @@
 </head>
     <body>
         <p>test</p>
-        <div id="app">{{ dog }}</div>
-        <img src="dog.message" alt="blah">
+        <img id="app" src="dog" alt="blah">
     </body>
 </html>
 <script>
@@ -24,7 +23,7 @@
                         throw new Error(response.status);
                     }
                     dog.value = await response.json();
-                    // dog.value = dog.value.message;
+                    dog.value = dog.value.message;
                 } catch(error) {
                     dog.value = 'couldnt get dog image :(';
                 }
