@@ -146,11 +146,12 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             //   completed_walks: completed_walks[0]["completed_walks"]
             // };
             // results.push(result);
-            promises.push(sqldb.query(`SELECT COUNT(walker_id) AS completed_walks FROM WalkApplications JOIN WalkRequests ON WalkApplications.request_id = WalkRequests.request_id WHERE WalkRequests.status = 'completed' AND WalkApplications.status = 'accepted' AND WalkApplications.walker_id = ${walker.user_id};`));
+            promises.push(sqldb.query(`SELECT COUNT(walker_id) AS value FROM WalkApplications JOIN WalkRequests ON WalkApplications.request_id = WalkRequests.request_id WHERE WalkRequests.status = 'completed' AND WalkApplications.status = 'accepted' AND WalkApplications.walker_id = ${walker.user_id};`));
         }
         await db.end();
         const test2 = await Promise.all(promises);
-        test2[0] = test2[0][0][0].total;
+        
+        test2[0] = test2[0][0][0].value;
         console.log(test2);
         res.json(test2);
     } catch (err) {
