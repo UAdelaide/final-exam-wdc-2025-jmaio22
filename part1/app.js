@@ -125,8 +125,9 @@ app.get('/api/walkers/summary', async function(req, res, next) {
         database: 'DogWalkService',
         multipleStatements: true
         });
+        // get all dog walkers
         const [walkers] = await sqldb.query("SELECT * FROM Users WHERE role = 'walker';");
-        const promises = [];
+        const promises = []; // to store all queries needing await
 
         for (let walker of walkers) {
             // get total ratings
