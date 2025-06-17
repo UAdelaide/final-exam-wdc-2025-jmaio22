@@ -30,8 +30,7 @@
             if (!response.ok) {
                 throw new Error(response.status);
             }
-            const dog = await response.json();
-            test.value = dog;
+            test.value = await response.json();
         } catch(error) {
             // message = ref('couldnt get dog image :(');
         }
