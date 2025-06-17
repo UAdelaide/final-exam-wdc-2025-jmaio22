@@ -132,7 +132,7 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             let [total_ratings] = await sqldb.query(`SELECT COUNT(walker_id) AS total_ratings FROM WalkRatings WHERE walker_id = ${walker.user_id};`);
             total_ratings = total_ratings[0]["total_ratings"];
             // get average ratings
-            let [tempratings] = await sqldb.query(`SELECT rating FROM WalkRatings WHERE walker_id = ${walker.user_id};`);
+            let [tempratings] = await sqldb.query(`SELECT AVG(rating) FROM WalkRatings WHERE walker_id = ${walker.user_id};`);
             let ratings = [];
             for (let rating of tempratings) {
                 ratings.push(rating.rating);
