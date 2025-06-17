@@ -150,7 +150,8 @@ app.get('/api/walkers/summary', async function(req, res, next) {
         }
         await db.end();
         const test2 = await Promise.all(test);
-        res.json(results);
+        console.log(test2);
+        res.json(test2);
     } catch (err) {
     res.status(500).json({ error: 'Failed to fetch summary' });
   }
