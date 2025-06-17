@@ -32,7 +32,7 @@ let db;
       multipleStatements: true
     });
 
-    // create dogwalk db
+    // create dogwalk db from .sql file
     const schema_path = path.join(__dirname, 'dogwalks.sql');
     const schema = fs.readFileSync(schema_path, 'utf8');
     await connection.query(schema);
