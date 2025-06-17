@@ -140,7 +140,7 @@ SELECT AVG(rating) AS value FROM WalkRatings WHERE walker_id = ${walker.user_id}
 `));
             // gets all walk applications that are marked as accepted, that have paired to them
             // walk requests that are marked as complete, where both share the same user_id
-            // this is what i assume is wanted for completed_walks?
+            // this is what i assume is wanted as to determine completed_walks?
             promises.push(sqldb.query(`
 SELECT COUNT(walker_id) AS value FROM WalkApplications JOIN WalkRequests ON WalkApplications.request_id = WalkRequests.request_id WHERE WalkRequests.status = 'completed' AND WalkApplications.status = 'accepted' AND WalkApplications.walker_id = ${walker.user_id};
 `));
