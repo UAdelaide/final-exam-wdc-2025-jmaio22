@@ -150,7 +150,9 @@ app.get('/api/walkers/summary', async function(req, res, next) {
         }
         await db.end();
         const test2 = await Promise.all(promises);
-        
+        for (let i = 0; i < test2.length; i++) {
+          test2[0]
+        }
         test2[0] = test2[0][0][0].value;
         console.log(test2);
         res.json(test2);
