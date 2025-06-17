@@ -132,7 +132,7 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             promises.push(sqldb.query(`SELECT COUNT(walker_id) AS value FROM WalkRatings WHERE walker_id = ${walker.user_id};`));
             // get average ratings
             promises.push(sqldb.query(`SELECT AVG(rating) AS value FROM WalkRatings WHERE walker_id = ${walker.user_id};`));
-            // gets only walk a
+            // gets only walk applications that are marked as accepted, that have paired to the
             // walk applications marked as accepted paired to walk requests-
             // that are marked as completed that are under the same user_id
             promises.push(sqldb.query(`SELECT COUNT(walker_id) AS value FROM WalkApplications JOIN WalkRequests ON WalkApplications.request_id = WalkRequests.request_id WHERE WalkRequests.status = 'completed' AND WalkApplications.status = 'accepted' AND WalkApplications.walker_id = ${walker.user_id};`));
