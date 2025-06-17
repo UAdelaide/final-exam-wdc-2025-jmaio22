@@ -152,6 +152,7 @@ SELECT COUNT(walker_id) AS value FROM WalkApplications JOIN WalkRequests ON Walk
           promise_results[i] = promise_results[i][0][0].value;
         }
 
+        // construct json response
         let response_results = [];
         for (let i = 0; i < walkers.length; i++) {
             let temp_response = {
@@ -162,7 +163,7 @@ SELECT COUNT(walker_id) AS value FROM WalkApplications JOIN WalkRequests ON Walk
             };
             response_results.push(temp_response);
         }
-        res.json(test2);
+        res.json(response_results);
     } catch (err) {
     res.status(500).json({ error: 'Failed to fetch summary' });
   }
