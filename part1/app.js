@@ -3,6 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mysql = require('mysql2/promise');
+var fs = require('fs');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -32,7 +33,7 @@ let db;
 
     // create dogwalk db
     const schema_path = path.join(__dirname, 'dogwalks.sql');
-    const schema = 
+    const schema =
 
     await connection.query('CREATE DATABASE IF NOT EXISTS testdb');
     await connection.end();
