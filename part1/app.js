@@ -70,6 +70,7 @@ SELECT dog_id, '2025-06-10 09:45:00' , '60', 'Victoria Park', 'open' FROM Dogs W
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
 SELECT dog_id, '2025-09-10 02:30:00' , '10', 'West Beach', 'cancelled' FROM Dogs WHERE name = 'Rupert' AND size = 'large';
     `);
+    await db.end();
   } catch (err) {
     console.error('Error setting up database.', err);
   }
