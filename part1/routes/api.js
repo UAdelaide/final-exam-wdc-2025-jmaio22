@@ -12,7 +12,8 @@ router.get('/dogs', async function(req, res, next) {
         database: 'DogWalkService',
         multipleStatements: true
         });
-        await
+        await db.query();
+        await db.end();
     } catch (err) {
     console.error('Error setting up database.', err);
   }
