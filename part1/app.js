@@ -127,8 +127,7 @@ app.get('/api/walkers/summary', async function(req, res, next) {
         await db.end();
         for (let walker of walkers) {
             let walker_username = walker.username;
-            
-            console.log(walker.username);
+            let total_ratings = 
         }
         res.json(walkers);
     } catch (err) {
