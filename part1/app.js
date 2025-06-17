@@ -33,7 +33,7 @@ let db;
 
     // create dogwalk db
     const schema_path = path.join(__dirname, 'dogwalks.sql');
-    const schema =
+    const schema = fd.readFileSync(schema_path, 'utf8');
 
     await connection.query('CREATE DATABASE IF NOT EXISTS testdb');
     await connection.end();
