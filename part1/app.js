@@ -150,7 +150,7 @@ app.get('/api/walkers/summary', async function(req, res, next) {
         }
         await db.end();
         const test2 = await Promise.all(promises);
-        test2[0] = test2[0][0].total;
+        test2[0] = test2[0][0][0].total;
         console.log(test2);
         res.json(test2);
     } catch (err) {
