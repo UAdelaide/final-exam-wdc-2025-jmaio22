@@ -69,7 +69,7 @@ INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, st
 SELECT dog_id, '2025-09-10 02:30:00' , '10', 'West Beach', 'cancelled' FROM Dogs WHERE name = 'Rupert' AND size = 'large';
 INSERT INTO WalkRatings (rating_id, request_id, walker_id, owner_id, rating, comments) VALUES (1, 1, 2, 1, 5, 'great guy');
 INSERT INTO WalkRatings (rating_id, request_id, walker_id, owner_id, rating, comments) VALUES (1, 1, 2, 1, 2, 'trash');
-INSERT INTO WalkRatings (rating_id, request_id, walker_id, owner_id, rating, comments) VALUES (1, 1, 2, 1, 3, 'he didnt pet my dog');
+INSERT INTO WalkRatings (rating_id, request_id, walker_id, owner_id, rating, comments) VALUES (1, 1, 2, 1, 3, 'he didnt pat my dog');
     `);
     await db.end();
   } catch (err) {
