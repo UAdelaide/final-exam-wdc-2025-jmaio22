@@ -154,8 +154,7 @@ app.get('/api/walkers/summary', async function(req, res, next) {
               walker_username: walker.username,
               total_ratings: total_ratings,
               average_rating: average_rating,
-              completed_walks: completed_walks.completed_walks,
-              test: 1
+              completed_walks: completed_walks.completed_walks
             };
             results.push(result);
         }
