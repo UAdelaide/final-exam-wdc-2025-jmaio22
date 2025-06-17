@@ -136,7 +136,7 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             // get average ratings
             // let [average_rating] = await sqldb.query(`SELECT AVG(rating) AS avg FROM WalkRatings WHERE walker_id = ${walker.user_id};`);
             // average_rating = average_rating[0].avg;
-            test.push(sqldb.query(`SELECT AVG(rating) AS avg FROM WalkRatings WHERE walker_id = ${walker.user_id};`));
+            promises.push(sqldb.query(`SELECT AVG(rating) AS avg FROM WalkRatings WHERE walker_id = ${walker.user_id};`));
             // gets applications marked as accepted paired to walk requests marked as completed that are under the same user_id
             // let [completed_walks] = await sqldb.query(`SELECT COUNT(walker_id) AS completed_walks FROM WalkApplications JOIN WalkRequests ON WalkApplications.request_id = WalkRequests.request_id WHERE WalkRequests.status = 'completed' AND WalkApplications.status = 'accepted' AND WalkApplications.walker_id = ${walker.user_id};`);
             // let result = {
@@ -146,10 +146,10 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             //   completed_walks: completed_walks[0]["completed_walks"]
             // };
             // results.push(result);
-            test.push(sqldb.query(`SELECT COUNT(walker_id) AS completed_walks FROM WalkApplications JOIN WalkRequests ON WalkApplications.request_id = WalkRequests.request_id WHERE WalkRequests.status = 'completed' AND WalkApplications.status = 'accepted' AND WalkApplications.walker_id = ${walker.user_id};`));
+            promises.push(sqldb.query(`SELECT COUNT(walker_id) AS completed_walks FROM WalkApplications JOIN WalkRequests ON WalkApplications.request_id = WalkRequests.request_id WHERE WalkRequests.status = 'completed' AND WalkApplications.status = 'accepted' AND WalkApplications.walker_id = ${walker.user_id};`));
         }
         await db.end();
-        const test2 = await Promise.all(test);
+        const test2 = await Promise.all(promises);
         console.log(test2);
         res.json(test2);
     } catch (err) {
