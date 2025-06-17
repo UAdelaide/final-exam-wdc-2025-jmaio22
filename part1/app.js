@@ -130,7 +130,7 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             let [total_ratings] = await sqldb.query(`SELECT COUNT(walker_id) FROM WalkRatings WHERE walker_id = ${walker.user_id};`);
             total_ratings = total_ratings[0]["COUNT(walker_id)"];
             let [ratings] = await sqldb.query(`SELECT rating FROM WalkRatings WHERE walker_id = ${walker.user_id};`);
-            
+            for ()
         }
         await db.end();
         res.json(walkers);
