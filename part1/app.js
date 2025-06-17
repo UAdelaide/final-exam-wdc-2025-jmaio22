@@ -78,15 +78,15 @@ SELECT dog_id, '2025-09-10 02:30:00' , '10', 'West Beach', 'cancelled' FROM Dogs
 
 app.get('api/dogs', async function(req, res, next) {
     try {
-        let db;
-        db = await mysql.createConnection({
+        let sqldb;
+        sqldb = await mysql.createConnection({
         host: '127.0.0.1',
         user: 'root',
         password: '',
         database: 'DogWalkService',
         multipleStatements: true
         });
-        const [dogs] = await db.query('SELECT Dogs.name AS dog_name, size, Users.username AS owner_username FROM Dogs JOIN Users ON Users.user_id = Dogs.owner_id;');
+        const [dogs] = await sqldb.query('SELECT Dogs.name AS dog_name, size, Users.username AS owner_username FROM Dogs JOIN Users ON Users.user_id = Dogs.owner_id;');
         await db.end();
         res.json(dogs);
     } catch (err) {
