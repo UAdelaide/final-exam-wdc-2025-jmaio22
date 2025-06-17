@@ -19,7 +19,6 @@
             return {
                 message
             }
-        }
     const test = ref('');
     onMounted(async () => {
         const url = "https://dog.ceo/api/breeds/image/random";
@@ -33,6 +32,7 @@
             // message = ref('couldnt get dog image :(');
         }
     });
+        }
     }).mount('#app')
 
 
