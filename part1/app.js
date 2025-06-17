@@ -132,7 +132,7 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             // get total ratings
             // let [total_ratings] = await sqldb.query(`SELECT COUNT(walker_id) AS total FROM WalkRatings WHERE walker_id = ${walker.user_id};`);
             // total_ratings = total_ratings[0].total;
-            test.push(sqldb.query(`SELECT COUNT(walker_id) AS total FROM WalkRatings WHERE walker_id = ${walker.user_id};`));
+            promises.push(sqldb.query(`SELECT COUNT(walker_id) AS total FROM WalkRatings WHERE walker_id = ${walker.user_id};`));
             // get average ratings
             // let [average_rating] = await sqldb.query(`SELECT AVG(rating) AS avg FROM WalkRatings WHERE walker_id = ${walker.user_id};`);
             // average_rating = average_rating[0].avg;
