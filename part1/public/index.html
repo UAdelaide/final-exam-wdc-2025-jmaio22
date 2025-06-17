@@ -16,7 +16,7 @@
     createApp({
         setup() {
             const dog = ref('');
-            const getdog =async () => {
+            const getdog = async () => {
                 const url = "https://dog.ceo/api/breeds/image/random";
                 try {
                     const response = await fetch(url);
@@ -28,7 +28,8 @@
                 } catch(error) {
                     dog.value = 'couldnt get dog image :(';
                 }
-            });
+            };
+            onMounted(getdog);
             return { dog }
         }
     }).mount('#app')
