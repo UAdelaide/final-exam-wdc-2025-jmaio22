@@ -13,6 +13,16 @@
 <script>
   const { createApp, ref } = Vue
     var test;
+    createApp({
+        setup() {
+            const message = ref('');
+            message.value = 'test2';
+            return {
+                message
+            }
+        }
+    }).mount('#app')
+
     onMounted(async () => {
         const url = "https://dog.ceo/api/breeds/image/random";
         try {
@@ -25,14 +35,5 @@
         } catch(error) {
             // message = ref('couldnt get dog image :(');
         }
-    }
-    createApp({
-        setup() {
-            const message = ref('');
-            message.value = 'test2';
-            return {
-                message
-            }
-        }
-    }).mount('#app')
+    });
 </script>
