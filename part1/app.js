@@ -158,12 +158,10 @@ SELECT COUNT(walker_id) AS value FROM WalkApplications JOIN WalkRequests ON Walk
                 walker_username: walkers[i].username,
                 total_ratings: promise_results[i],
                 average_rating: promise_results[i+1],
-                
-
+                completed_walks: promise_results[i+2]
             };
             response_results.push(temp_response);
         }
-        console.log(test2);
         res.json(test2);
     } catch (err) {
     res.status(500).json({ error: 'Failed to fetch summary' });
