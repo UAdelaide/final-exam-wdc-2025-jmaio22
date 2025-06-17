@@ -23,6 +23,7 @@
                         throw new Error(response.status);
                     }
                     dog.value = await response.json();
+                    dog.value = dog.value.message;
                 } catch(error) {
                     dog.value = 'couldnt get dog image :(';
                 }
