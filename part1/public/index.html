@@ -7,15 +7,13 @@
 </head>
     <body>
         <p>test</p>
-        <div v-if="test" id="app">{{ test }}</div>
+        <div v-if="test" id="app">{{ dog }}</div>
     </body>
 </html>
 <script>
     const { createApp, ref, onMounted } = Vue
     createApp({
         setup() {
-            const message = ref('');
-            message.value = 'test2';
             const test = ref('');
             onMounted(async () => {
                 const url = "https://dog.ceo/api/breeds/image/random";
