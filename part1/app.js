@@ -151,7 +151,6 @@ SELECT COUNT(walker_id) AS value FROM WalkApplications JOIN WalkRequests ON Walk
         for (let i = 0; i < promise_results.length; i++) {
           promise_results[i] = promise_results[i][0][0].value;
         }
-
         // construct json response
         let response_results = [];
         for (let i = 0; i < walkers.length; i++) {
