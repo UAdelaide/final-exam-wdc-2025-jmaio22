@@ -156,7 +156,10 @@ SELECT COUNT(walker_id) AS value FROM WalkApplications JOIN WalkRequests ON Walk
         for (let i = 0; i < walkers.length; i++) {
             let temp_response = {
                 walker_username: walkers[i].username,
-                total_ratings: promise_results[i]+0
+                total_ratings: promise_results[i],
+                average_rating: promise_results[i+1],
+                
+
             };
             response_results.push(temp_response);
         }
