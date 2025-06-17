@@ -4,32 +4,32 @@
     <title>Express</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script>
-    const { createApp, ref, onMounted } = Vue
-    createApp({
-        setup() {
-            const message = ref('');
-            message.value = 'test2';
-            return {
-                message
+    <script>
+        const { createApp, ref, onMounted } = Vue
+        createApp({
+            setup() {
+                const message = ref('');
+                message.value = 'test2';
+                return {
+                    message
+                }
             }
-        }
-    }).mount('#app')
+        }).mount('#app')
 
-    const test = ref('');
-    onMounted(async () => {
-        const url = "https://dog.ceo/api/breeds/image/random";
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(response.status);
+        const test = ref('');
+        onMounted(async () => {
+            const url = "https://dog.ceo/api/breeds/image/random";
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(response.status);
+                }
+                test.value = await response.json();
+            } catch(error) {
+                // message = ref('couldnt get dog image :(');
             }
-            test.value = await response.json();
-        } catch(error) {
-            // message = ref('couldnt get dog image :(');
-        }
-    });
-</script>
+        });
+    </script>
 </head>
     <body>
         <p>test</p>
