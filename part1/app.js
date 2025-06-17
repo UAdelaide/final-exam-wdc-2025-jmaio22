@@ -152,9 +152,9 @@ SELECT COUNT(walker_id) AS value FROM WalkApplications JOIN WalkRequests ON Walk
           promise_results[i] = promise_results[i][0][0].value;
         }
 
-        let 
+        let response_results = [];
         for (let i = 0; i < walkers.length; i++) {
-
+            
         }
         console.log(test2);
         res.json(test2);
