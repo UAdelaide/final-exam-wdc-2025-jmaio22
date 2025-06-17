@@ -146,7 +146,8 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             } else {
               average_rating = sum / ratings.length;
             }
-            console.log(average_rating);
+            // get completed walks
+            let 
         }
         await db.end();
         res.json(walkers);
