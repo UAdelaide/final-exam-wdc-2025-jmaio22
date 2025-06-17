@@ -16,22 +16,21 @@
 
   createApp({
     async setup() {
-          let message;
+        let message;
         const url = "https://dog.ceo/api/breeds/image/random";
-      try {
-          const response = await fetch(url);
-          if (!response.ok) {
-            throw new Error(response.status);
-          }
-          const dog = await response.json();
-          message = ref(dog);
-      } catch(error) {
-        message = ref('couldnt get dog image :(');
-      }
-      return {
-        message
-      }
-
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(response.status);
+            }
+            const dog = await response.json();
+            message = ref(dog);
+        } catch(error) {
+            message = ref('couldnt get dog image :(');
+        }
+        return {
+            message
+        }
     }
   }).mount('#app')
 </script>
