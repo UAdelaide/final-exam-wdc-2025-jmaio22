@@ -124,11 +124,11 @@ app.get('/api/walkers/summary', async function(req, res, next) {
         multipleStatements: true
         });
         const [walkers] = await sqldb.query("SELECT * FROM Users WHERE role = 'walker';");
-        await db.end();
         for (let walker of walkers) {
             let walker_username = walker.username;
-            let total_ratings = 
+            let total_ratings = await sqldb.query()
         }
+        await db.end();
         res.json(walkers);
     } catch (err) {
     res.status(500).json({ error: 'Failed to fetch dogs' });
