@@ -15,7 +15,7 @@
   const { createApp, ref } = Vue
 
   createApp({
-    async setup() {
+    setup() {
         const message = ref('');
         const url = "https://dog.ceo/api/breeds/image/random";
         try {
@@ -24,11 +24,11 @@
                 throw new Error(response.status);
             }
             const dog = await response.json();
-            message = ref(dog);
+            message.value = dog;
         } catch(error) {
             message = ref('couldnt get dog image :(');
         }
-        message = ref('test2');
+        message.value = 'test2';
         return {
             message
         }
