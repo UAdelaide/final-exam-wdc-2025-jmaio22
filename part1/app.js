@@ -111,7 +111,7 @@ app.get('/api/walkrequests/open', async function(req, res, next) {
   }
 });
 
-app.get('/api/dogs', async function(req, res, next) {
+app.get('/api/walkers/summary', async function(req, res, next) {
     try {
         let sqldb;
         sqldb = await mysql.createConnection({
