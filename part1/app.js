@@ -154,6 +154,9 @@ SELECT COUNT(walker_id) AS value FROM WalkApplications JOIN WalkRequests ON Walk
 
         let response_results = [];
         for (let i = 0; i < walkers.length; i++) {
+            let temp_response = {
+
+            };
             
         }
         console.log(test2);
