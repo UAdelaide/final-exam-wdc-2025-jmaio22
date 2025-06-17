@@ -14,7 +14,7 @@
     const { createApp, ref, onMounted } = Vue
     createApp({
         setup() {
-            const test = ref('');
+            const dog = ref('');
             onMounted(async () => {
                 const url = "https://dog.ceo/api/breeds/image/random";
                 try {
@@ -22,9 +22,9 @@
                     if (!response.ok) {
                         throw new Error(response.status);
                     }
-                    test.value = await response.json();
+                    dog.value = await response.json();
                 } catch(error) {
-                    dog.value = ref('couldnt get dog image :(');
+                    dog.value = 'couldnt get dog image :(';
                 }
             });
             return { dog }
