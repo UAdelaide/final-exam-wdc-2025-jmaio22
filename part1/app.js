@@ -31,6 +31,8 @@ let db;
     });
 
     // create dogwalk db
+    const schema = 
+
     await connection.query('CREATE DATABASE IF NOT EXISTS testdb');
     await connection.end();
 
