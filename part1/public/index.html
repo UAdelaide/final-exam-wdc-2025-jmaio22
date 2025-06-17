@@ -31,7 +31,7 @@
                 throw new Error(response.status);
             }
             const dog = await response.json();
-            test = dog;
+            message.value = dog;
         } catch(error) {
             // message = ref('couldnt get dog image :(');
         }
