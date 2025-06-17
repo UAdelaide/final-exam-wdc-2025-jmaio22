@@ -24,13 +24,10 @@
                     }
                     test.value = await response.json();
                 } catch(error) {
-                    // message = ref('couldnt get dog image :(');
+                    dog.value = ref('couldnt get dog image :(');
                 }
             });
-            return {
-                message,
-                test
-            }
+            return { dog }
         }
     }).mount('#app')
 </script>
