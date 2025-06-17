@@ -70,7 +70,7 @@ SELECT dog_id, '2025-09-10 02:30:00' , '10', 'West Beach', 'cancelled' FROM Dogs
 INSERT INTO WalkRatings (rating_id, request_id, walker_id, owner_id, rating, comments) VALUES (1, 1, 2, 1, 5, 'great guy');
 INSERT INTO WalkRatings (rating_id, request_id, walker_id, owner_id, rating, comments) VALUES (2, 2, 2, 2, 2, 'trash');
 INSERT INTO WalkRatings (rating_id, request_id, walker_id, owner_id, rating, comments) VALUES (3, 3, 2, 1, 3, 'he didnt pat my dog');
-INSERT INTO WalkApplications (application_id, request_id, walker_id, status) VALUES (1, )
+INSERT INTO WalkApplications (application_id, request_id, walker_id, status) VALUES (1, 3, 1,)
     `);
     await db.end();
   } catch (err) {
