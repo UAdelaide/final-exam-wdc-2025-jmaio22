@@ -149,12 +149,12 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             }
             // get completed walks
             // checking for walk applications marked as accepted using walk requests marked as completed under the same user_id, as I assume is wanted?
-            let [completed_walks1] = await sqldb.query(`SELECT COUNT(walker_id) AS completed_walks FROM WalkApplications JOIN WalkRequests ON WalkApplications.request_id = WalkRequests.request_id WHERE WalkRequests.status = 'completed' AND WalkApplications.status = 'accepted' AND WalkApplications.walker_id = ${walker.user_id};`);
+            let [completed_walks] = await sqldb.query(`SELECT COUNT(walker_id) AS completed_walks FROM WalkApplications JOIN WalkRequests ON WalkApplications.request_id = WalkRequests.request_id WHERE WalkRequests.status = 'completed' AND WalkApplications.status = 'accepted' AND WalkApplications.walker_id = ${walker.user_id};`);
             let result = {
               "walker_username": walker.username,
               "total_ratings": total_ratings,
               "average_rating": average_rating,
-              "completed_walks": completed_walks1.completed_walks
+              'completed_walks': completed_walks.completed_walks
             };
         }
         await db.end();
