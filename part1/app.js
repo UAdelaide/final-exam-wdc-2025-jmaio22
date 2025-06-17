@@ -152,6 +152,7 @@ SELECT COUNT(walker_id) AS value FROM WalkApplications JOIN WalkRequests ON Walk
           results[i] = results[i][0][0].value;
         }
 
+        
         console.log(test2);
         res.json(test2);
     } catch (err) {
