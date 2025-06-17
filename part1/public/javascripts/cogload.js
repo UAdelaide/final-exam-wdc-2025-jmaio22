@@ -1,5 +1,10 @@
+const { createApp, ref } = Vue
+
 createApp({
-
-
-
-}).mount('');
+setup() {
+    const message = ref('Hello vue!')
+    return {
+    message
+    }
+}
+}).mount('#app')
