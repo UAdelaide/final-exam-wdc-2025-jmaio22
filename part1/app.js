@@ -103,7 +103,7 @@ app.get('/api/walkrequests/open', async function(req, res, next) {
         database: 'DogWalkService',
         multipleStatements: true
         });
-        const [dogs] = await sqldb.query('');
+        const [dogs] = await sqldb.query('SELECT request_id, Dogs.name AS dog_name, requested_time, duration_minutes, location, Users.username AS owner_username FROM WalkRequests JOIN Dogs ON Dogs.dog_id = WalkRequests.dog_id  JOIN Users ON Users.user_id = Dogs.owner_id WHERE WalkRequests.status = 'open';');
         await db.end();
         res.json(dogs);
     } catch (err) {
