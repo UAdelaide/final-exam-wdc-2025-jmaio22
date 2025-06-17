@@ -76,7 +76,7 @@ SELECT dog_id, '2025-09-10 02:30:00' , '10', 'West Beach', 'cancelled' FROM Dogs
   }
 })();
 
-app.get('api/dogs', async function(req, res, next) {
+app.get('/api/dogs', async function(req, res, next) {
     try {
         let sqldb;
         sqldb = await mysql.createConnection({
