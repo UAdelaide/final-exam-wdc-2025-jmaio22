@@ -125,7 +125,7 @@ app.get('/api/walkers/summary', async function(req, res, next) {
         });
         const [walkers] = await sqldb.query("SELECT * FROM Users WHERE role = 'walker';");
         for (let walker of walkers) {
-            let [total_ratings] = await sqldb.query(`SELECT COUNT(walker_id) FROM WalkRatings WHERE walker_id = ${walker.user_id};`)
+            let [total_ratings] = await sqldb.query(`SELECT COUNT(walker_id) FROM WalkRatings WHERE walker_id = ${walker.user_id};`);
             total_ratings = total_ratings[0]["COUNT(walker_id)"];
         }
         await db.end();
