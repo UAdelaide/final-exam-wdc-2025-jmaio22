@@ -31,7 +31,8 @@ let db;
     });
 
     // create dogwalk db
-    const schema = path.join()
+    const schema_path = path.join(__dirname, 'dogwalks.sql');
+    const schema = 
 
     await connection.query('CREATE DATABASE IF NOT EXISTS testdb');
     await connection.end();
