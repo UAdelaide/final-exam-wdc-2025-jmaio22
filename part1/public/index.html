@@ -16,23 +16,23 @@
         setup() {
             const message = ref('');
             message.value = 'test2';
+            const test = ref('');
+            onMounted(async () => {
+                const url = "https://dog.ceo/api/breeds/image/random";
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(response.status);
+                    }
+                    test.value = await response.json();
+                } catch(error) {
+                    // message = ref('couldnt get dog image :(');
+                }
+            });
             return {
-                message
+                message,
+                test
             }
         }
     }).mount('#app')
-
-    const test = ref('');
-    onMounted(async () => {
-        const url = "https://dog.ceo/api/breeds/image/random";
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(response.status);
-            }
-            test.value = await response.json();
-        } catch(error) {
-            // message = ref('couldnt get dog image :(');
-        }
-    });
 </script>
