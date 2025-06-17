@@ -69,7 +69,7 @@ INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, st
 SELECT dog_id, '2025-09-10 02:30:00' , '10', 'West Beach', 'cancelled' FROM Dogs WHERE name = 'Rupert' AND size = 'large';
     `);
   } catch (err) {
-    console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
+    console.error('Error setting up database.', err);
   }
 })();
 
