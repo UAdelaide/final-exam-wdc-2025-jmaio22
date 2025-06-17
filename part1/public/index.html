@@ -12,17 +12,18 @@
 </html>
 <script>
   const { createApp, ref } = Vue
-    // const url = "https://dog.ceo/api/breeds/image/random";
-    // try {
-    //     const response = await fetch(url);
-    //     if (!response.ok) {
-    //         throw new Error(response.status);
-    //     }
-    //     const dog = await response.json();
-    //     message.value = dog;
-    // } catch(error) {
-    //     message = ref('couldnt get dog image :(');
-    // }
+    let test;
+    const url = "https://dog.ceo/api/breeds/image/random";
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(response.status);
+        }
+        const dog = await response.json();
+        test = dog;
+    } catch(error) {
+        // message = ref('couldnt get dog image :(');
+    }
     createApp({
         setup() {
             const message = ref('');
