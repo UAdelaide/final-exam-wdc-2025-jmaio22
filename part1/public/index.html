@@ -22,17 +22,17 @@
             }
             const dog = await response.json();
             test = dog;
-            createApp({
-                setup() {
-                    const message = ref('');
-                    message.value = 'test2';
-                    return {
-                        message
-                    }
-                }
-            }).mount('#app')
         } catch(error) {
             // message = ref('couldnt get dog image :(');
         }
     }
+    createApp({
+        setup() {
+            const message = ref('');
+            message.value = 'test2';
+            return {
+                message
+            }
+        }
+    }).mount('#app')
 </script>
