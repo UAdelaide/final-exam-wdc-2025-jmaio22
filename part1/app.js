@@ -134,6 +134,7 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             for (let rating of tempratings) {
                 ratings.push(rating.rating);
             }
+            console.log(ratings);
         }
         await db.end();
         res.json(walkers);
