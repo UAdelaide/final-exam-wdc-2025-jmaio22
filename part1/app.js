@@ -114,7 +114,7 @@ app.get('/api/walkrequests/open', async function(req, res, next) {
 
 app.get('/api/walkers/summary', async function(req, res, next) {
     try {
-        let 
+        let results = [];
         let sqldb;
         sqldb = await mysql.createConnection({
         host: '127.0.0.1',
