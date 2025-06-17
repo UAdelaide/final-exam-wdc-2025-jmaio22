@@ -122,7 +122,7 @@ app.get('/api/walkers/summary', async function(req, res, next) {
         database: 'DogWalkService',
         multipleStatements: true
         });
-        const [dogs] = await sqldb.query('SELECT Dogs.name AS dog_name, size, Users.username AS owner_username FROM Dogs JOIN Users ON Users.user_id = Dogs.owner_id;');
+        const [dogs] = await sqldb.query('SELECT * FROM Users WHERE ;');
         await db.end();
         res.json(dogs);
     } catch (err) {
