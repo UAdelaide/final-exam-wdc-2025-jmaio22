@@ -147,7 +147,8 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             } else {
               average_rating = sum / ratings.length;
             }
-            // get completed walks, checking for walk requests marked as completed and walk applications marked as accepted 
+            // get completed walks
+            // checking for walk requests marked as completed and walk applications marked as accepted
             let [completed_walks] = await sqldb.query(`SELECT COUNT(walker_id) FROM WalkApplications JOIN WalkRequests ON WalkApplications.request_id = WalkRequests.request_id WHERE WalkRequests.status = 'completed' AND WalkApplications.status = 'accepted';`);
         }
         await db.end();
