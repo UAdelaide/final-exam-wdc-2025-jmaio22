@@ -14,6 +14,7 @@ router.get('/dogs', async function(req, res, next) {
         });
         const [dogs] = await db.query('SELECT * FROM Dogs;');
         await db.end();
+        
     } catch (err) {
     console.error('Error setting up database.', err);
   }
