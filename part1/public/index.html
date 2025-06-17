@@ -16,7 +16,7 @@
     createApp({
         setup() {
             const dog = ref('');
-            onMounted(async () => {
+            const getdog =async () => {
                 const url = "https://dog.ceo/api/breeds/image/random";
                 try {
                     const response = await fetch(url);
