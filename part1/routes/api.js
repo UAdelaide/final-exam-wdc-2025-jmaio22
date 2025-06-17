@@ -12,7 +12,7 @@ router.get('/dogs', async function(req, res, next) {
         database: 'DogWalkService',
         multipleStatements: true
         });
-        const [dogs] = await db.query('SELECT * FROM Dogs;');
+        const [dogs] = await db.query('SELECT Dogs.name AS dog_name, size, Users.username AS owner_username FROM Dogs JOIN Users ON Users.user_id = Dogs.owner_id;');
         await db.end();
         res.json(dogs);
     } catch (err) {
