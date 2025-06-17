@@ -154,11 +154,12 @@ app.get('/api/walkers/summary', async function(req, res, next) {
               walker_username: walker.username,
               total_ratings: total_ratings,
               average_rating: average_rating,
-              'completed_walks: completed_walks.completed_walks
+              completed_walks: completed_walks.completed_walks
             };
+            results.push(result);
         }
         await db.end();
-        res.json(walkers);
+        res.json(results);
     } catch (err) {
     res.status(500).json({ error: 'Failed to fetch summary' });
   }
