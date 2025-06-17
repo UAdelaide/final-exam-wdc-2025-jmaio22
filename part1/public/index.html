@@ -15,7 +15,7 @@
   const { createApp, ref } = Vue
 
   createApp({
-    setup() {
+    async setup() {
         const message = ref('');
         const url = "https://dog.ceo/api/breeds/image/random";
         try {
