@@ -153,7 +153,8 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             let result = {
               "walker_username": walker.username,
               "total_ratings": total_ratings,
-              "average_rating": 
+              "average_rating": average_rating,
+              "completed_walks": completed_walks.completed_walks
             };
         }
         await db.end();
