@@ -1,4 +1,4 @@
-const vueinst = Vue.createApp({
+createApp({
 
 
 
