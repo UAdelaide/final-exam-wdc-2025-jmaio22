@@ -117,7 +117,6 @@ app.get('/api/walkrequests/open', async function(req, res, next) {
 
 app.get('/api/walkers/summary', async function(req, res, next) {
     try {
-        let results = [];
         let sqldb;
         sqldb = await mysql.createConnection({
         host: '127.0.0.1',
@@ -149,9 +148,10 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             promises.push(sqldb.query(`SELECT COUNT(walker_id) AS value FROM WalkApplications JOIN WalkRequests ON WalkApplications.request_id = WalkRequests.request_id WHERE WalkRequests.status = 'completed' AND WalkApplications.status = 'accepted' AND WalkApplications.walker_id = ${walker.user_id};`));
         }
         await db.end();
+        // 
         const results = await Promise.all(promises);
         for (let i = 0; i < results.length; i++) {
-          test2[i] = test2[i][0][0].value;
+          results[i] = results[i][0][0].value;
         }
         console.log(test2);
         res.json(test2);
