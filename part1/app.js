@@ -148,7 +148,7 @@ app.get('/api/walkers/summary', async function(req, res, next) {
             promises.push(sqldb.query(`SELECT COUNT(walker_id) AS value FROM WalkApplications JOIN WalkRequests ON WalkApplications.request_id = WalkRequests.request_id WHERE WalkRequests.status = 'completed' AND WalkApplications.status = 'accepted' AND WalkApplications.walker_id = ${walker.user_id};`));
         }
         await db.end();
-        // 
+        // await all sql queries then extract their values
         const results = await Promise.all(promises);
         for (let i = 0; i < results.length; i++) {
           results[i] = results[i][0][0].value;
