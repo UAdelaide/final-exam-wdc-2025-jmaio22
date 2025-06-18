@@ -39,7 +39,7 @@ router.get('/me', (req, res) => {
 // POST login (dummy version)
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
-  const password_hash = await bcrypt.hash(password, 10);
+  // const password_hash = await bcrypt.hash(password, 10);
 
   // just use password below in the SQL statements if u want to test (not the hash)
   try {
