@@ -72,11 +72,11 @@ router.post('/login', async (req, res) => {
 });
 
 // logout route
-router.get('/me', (req, res) => {
+router.get('/logout', (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
-  res.json(req.session.user);
+  req.session.destroy();
 });
 
 module.exports = router;
