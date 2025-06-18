@@ -20,7 +20,7 @@
       </div>
       <div style="display: flex;flex-direction: column;gap: .1rem;">
         <label for="password">Password</label>
-        <input id="password" type="text" class="form-control">
+        <input id="password" name="password" type="text" class="form-control">
       </div>
     </div>
     <br>
@@ -33,6 +33,7 @@
     const { createApp } = Vue;
     createApp({
       data() {
+        
         return {
           message: 'Welcome to the Dog Walking Service!'
         };
