@@ -4,7 +4,7 @@ require('dotenv').config();
 
 const app = express();
 const session = require('express-session');
-const db = require('models/db');
+const db = require('./models/db');
 
 // Middleware
 app.use(express.json());
