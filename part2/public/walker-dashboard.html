@@ -49,7 +49,7 @@
           try {
             const res = await fetch('/api/users/logout');
             if (!res.ok) throw new Error('Failed to logout');
-            walks.value = await res.json();
+            window.location.href = "/";
           } catch (err) {
             error.value = err.message;
           }
