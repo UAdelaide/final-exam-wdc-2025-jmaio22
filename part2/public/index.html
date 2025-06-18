@@ -55,7 +55,7 @@
             const dogs = await res.json();
             const res2 = await fetch('https://dog.ceo/api/breeds/image/random/'+dogs.length);
             const dog_images = await res2.json();
-            console.log(dog_images);
+            let i = 0;
             dogs.forEach(dog => {
               document.getElementById('all-dogs').innerHTML += `
 <tr>
@@ -63,9 +63,10 @@
   <th>${dog.dog_name}</th>
   <th>${dog.size}</th>
   <th>${dog.owner_id}</th>
-  <th><img src="${dog_images.message[0]}"></th>
+  <th><img src="${dog_images.message[i]}"></th>
 </tr>
               `;
+              i++;
             });
           } catch (err) {
           }
