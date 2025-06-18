@@ -30,6 +30,8 @@
     </button>
     <br><br><br>
     <h1>All Registered Dogs</h1>
+    <table>
+    </table>
   </div>
 
   <script>
@@ -42,7 +44,7 @@
             if (!res.ok) {}
             const dogs = await res.json();
             dogs.forEach(dog => {
-              
+
             });
           } catch (err) {
           }
