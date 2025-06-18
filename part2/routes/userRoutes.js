@@ -62,7 +62,7 @@ router.post('/login', async (req, res) => {
 
     // get user that returned valid search
     const user = rows[0] ? rows[0] : rows2[0];
-    // store user info in the session cookie
+    // store user login in the session cookie
     req.session.user = { username: user.username, role: user.role };
     // return the users role and success message
     res.json({ message: 'Login successful', role: user.role });
