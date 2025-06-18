@@ -72,7 +72,8 @@
           try {
             const res = await fetch('/api/users/me');
             if (!res.ok) throw new Error('Failed to get current user: Not logged in');
-            con
+            const user = await res.json();
+            return (user);
           } catch (err) {
             error.value = err.message;
           }
@@ -80,6 +81,7 @@
 
         async function applyToWalk(requestId) {
           try {
+            r
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
