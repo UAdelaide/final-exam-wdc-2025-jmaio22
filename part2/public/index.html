@@ -46,8 +46,8 @@
                 }
               });
               if (!response.ok) {
+                
                 return ;
-                //throw some rror
               }
               const user = await response.json();
               if (user.role === 'owner') {
