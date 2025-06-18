@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(session({
-    secret: 'test', //make dotenv after i worjjjk
+    secret: 'test', //
     resave: false,
     saveUninitialized: true,
     cookie: {
