@@ -68,11 +68,11 @@
           }
         }
 
-        async function getCurrentUsers() {
+        async function getCurrentUser() {
           try {
             const res = await fetch('/api/users/me');
-            if (!res.ok) throw new Error('Failed to logout: Not logged in');
-            window.location.href = "/";
+            if (!res.ok) throw new Error('Failed to get current user: Not logged in');
+            con
           } catch (err) {
             error.value = err.message;
           }
