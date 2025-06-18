@@ -29,7 +29,7 @@ app.use(session({
 
 app.post('/auth/login', async function(req, res, next) {
     try {
-
+        const test = await db.query()
     } catch (err) {
     res.status(500).json({ error: 'Failed to login' });
   }
