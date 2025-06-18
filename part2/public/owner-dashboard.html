@@ -80,6 +80,16 @@
         const message = ref('');
         const error = ref('');
 
+        async function logout() {
+          try {
+            const res = await fetch('/api/users/logout');
+            if (!res.ok) throw new Error('Failed to logout: Not logged in');
+            window.location.href = "/";
+          } catch (err) {
+            error.value = err.message;
+          }
+        }
+
         async function loadWalks() {
           try {
             const res = await fetch('/api/walks');
