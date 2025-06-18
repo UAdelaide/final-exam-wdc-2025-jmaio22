@@ -41,7 +41,9 @@
             const res = await fetch('/api/dogs');
             if (!res.ok) {}
             const dogs = await res.json();
-            
+            dogs.forEach(dog => {
+              
+            });
           } catch (err) {
           }
         }
