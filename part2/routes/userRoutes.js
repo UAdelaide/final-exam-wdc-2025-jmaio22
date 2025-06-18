@@ -81,11 +81,11 @@ router.get('/logout', (req, res) => {
 });
 
 // get session user's dogs
-router.get('/dogs', (req, res) => {
+router.get('/dogs', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
-  const [dogs] = await db.query();
+  const [dogs] = await db.query(``);
   return res.json({ logout: 'Successfully logged out' });
 });
 
