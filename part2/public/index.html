@@ -53,9 +53,8 @@
           try {
             const res = await fetch('/api/dogs');
             if (!res.ok) {
-              
+              throw new Error(res.);
             }
-
             const dogs = await res.json();
             const res2 = await fetch('https://dog.ceo/api/breeds/image/random/'+dogs.length);
             const dog_images = await res2.json();
