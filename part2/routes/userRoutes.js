@@ -80,4 +80,13 @@ router.get('/logout', (req, res) => {
   return res.json({ logout: 'Successfully logged out' });
 });
 
+// get current user's dogs
+router.get('/logout', (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Not logged in' });
+  }
+  req.session.destroy();
+  return res.json({ logout: 'Successfully logged out' });
+});
+
 module.exports = router;
