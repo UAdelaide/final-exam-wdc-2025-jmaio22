@@ -62,7 +62,8 @@
                 window.location.href = 'walker-dashboard.html';
               }
             } catch(error) {
-              //hihihjehjgerigjne
+              document.getElementById('error-msg').innerHTML = 'Login failed!';
+              return ;
             }
           }
         }
