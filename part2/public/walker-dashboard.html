@@ -68,6 +68,16 @@
           }
         }
 
+        async function getCurrentUsers() {
+          try {
+            const res = await fetch('/api/users/me');
+            if (!res.ok) throw new Error('Failed to logout: Not logged in');
+            window.location.href = "/";
+          } catch (err) {
+            error.value = err.message;
+          }
+        }
+
         async function applyToWalk(requestId) {
           try {
             const res = await fetch(`/api/walks/${requestId}/apply`, {
