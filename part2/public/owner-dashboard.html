@@ -103,7 +103,7 @@
             const res = await fetch('/api/users/dogs');
             if (!res.ok) throw new Error('Failed to get dogs: Not logged in');
             const dognames = await res.json();
-            // append list options for each dogname found
+            // append list options for each dogname found, with value as dog's id
             dognames.forEach(name => {
               document.getElementById('dog-form-groups').innerHTML += '<option value="'+name.id+'">'+name.name+'</option>';
             });
