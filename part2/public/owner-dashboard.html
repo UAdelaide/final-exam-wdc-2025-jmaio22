@@ -103,7 +103,7 @@
             if (!res.ok) throw new Error('Failed to get dogs: Not logged in');
             // add list options for each dogname found
             for (let dogname in res) {
-              document.getElementById('dog-form-group');
+              document.getElementById('dog-form-group').innerHTML += ``;
             }
           } catch (err) {
             error.value = err.message;
