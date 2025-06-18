@@ -51,8 +51,9 @@
               const user = await response.json();
               if (user.user === 'owner') {
                 window.location.href = '/owner-dashboard'
+              } else {
+                window.location.href
               }
-              
             } catch(error) {
               //hihihjehjgerigjne
             }
