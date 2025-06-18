@@ -87,10 +87,10 @@ router.get('/dogs', async (req, res) => {
   }
   // get all dogs from current session user
   const [dogs] = await db.query(`SELECT * FROM Dogs WHERE owner_id = ${req.session.user.user_id};`);
-  // create and return array of dog names (returns empty array if none owned)
+  // create and return array of dog names and ids (returns empty array if none owned)
   const dognames = [];
   for (let dog of dogs) {
-    dognames.push({ name: dog.name, id: dog.dog_id});
+    dognames.push({ name: dog.name, id: dog.dog_id });
   }
   return res.json(dognames);
 });
