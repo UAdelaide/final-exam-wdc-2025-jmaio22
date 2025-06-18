@@ -104,6 +104,7 @@
             const dognames = await res.json();
             // add list options for each dogname found
             for (let dogname in dognames) {
+              console.log(dogname);
               document.getElementById('dog-form-groups').innerHTML += '<option value="'+dogname+'">'+dogname+'</option>';
             }
           } catch (err) {
