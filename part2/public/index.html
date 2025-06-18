@@ -48,7 +48,7 @@
               });
               if (!response.ok) {
                 const error = await response.json();
-                document.getElementById('error-msg').innerHTML = 'Login failed!' + error.error;
+                document.getElementById('error-msg').innerHTML = 'Login failed! ' + error.error;
                 return ;
               }
               const user = await response.json();
