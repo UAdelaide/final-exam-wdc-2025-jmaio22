@@ -37,9 +37,10 @@
         async function callLogin() {
           const email = document.getElementById('email');
           const password = document.getElementById('password');
-          // if the 
+          // if inputs have values in them
           if (email && email.value && password && password.value) {
             try {
+              // call login route
               const response = await fetch('/api/users/login', {
                 method: 'POST',
                 body: JSON.stringify({email: email.value, password: password.value}),
