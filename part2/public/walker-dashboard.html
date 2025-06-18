@@ -48,6 +48,7 @@
         const user = 3;
 
         async function logout() {
+          console.log('test');
           try {
             const res = await fetch('/api/users/logout');
             if (!res.ok) throw new Error('Failed to logout');
