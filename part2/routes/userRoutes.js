@@ -90,7 +90,7 @@ router.get('/dogs', async (req, res) => {
   // create and return array of dog names (returns empty array if none owned)
   const dognames = [];
   for (let dog of dogs) {
-    dognames.push({ dog.name id: dog});
+    dognames.push({ name: dog.name, id: dog.dog_id});
   }
   return res.json(dognames);
 });
