@@ -4,6 +4,7 @@ require('dotenv').config();
 
 const app = express();
 const session = require('express-session');
+const db = require('../models/db');
 
 // Middleware
 app.use(express.json());
@@ -28,16 +29,7 @@ app.use('/api/users', userRoutes);
 // final question route
 app.get('/api/dogs', async function(req, res, next) {
     try {
-        let sqldb;
-        sqldb = await db.createConnection({
-        host: '127.0.0.1',
-        user: 'root',
-        password: '',
-        database: 'DogWalkService',
-        multipleStatements: true
-        });
-        const [dogs] = await sqldb.query('SELECT Dogs.name AS dog_name, size, Users.username AS owner_username FROM Dogs JOIN Users ON Users.user_id = Dogs.owner_id;');
-        await db.end();
+        const [dogs] = await db.query('SELECT Dogs.name AS dog_name, size, Users.username AS owner_username FROM Dogs JOIN Users ON Users.user_id = Dogs.owner_id;');
         res.json(dogs);
     } catch (err) {
     res.status(500).json({ error: 'Failed to fetch dogs' });
