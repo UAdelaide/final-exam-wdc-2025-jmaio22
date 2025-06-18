@@ -47,7 +47,7 @@
 
         async function logout() {
           try {
-            const res = await fetch('/api/walks');
+            const res = await fetch('/api/users/logout');
             if (!res.ok) throw new Error('Failed to load walk requests');
             walks.value = await res.json();
           } catch (err) {
