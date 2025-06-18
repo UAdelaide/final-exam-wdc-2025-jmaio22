@@ -49,7 +49,9 @@
                 //dasda
               }
               const user = await response.json();
-              console.log(done);
+              if (user.user === 'owner') {
+                window.location.href = ''
+              }
             } catch(error) {
               //hihihjehjgerigjne
             }
