@@ -30,7 +30,7 @@ app.use('/api/users', userRoutes);
 app.get('/api/dogs', async function(req, res, next) {
     try {
         const [dogs] = await db.query('SELECT dog_id, Dogs.name AS dog_name, size, Users.user_id AS owner_id FROM Dogs JOIN Users ON Users.user_id = Dogs.owner_id;');
-        res.json(dogs);
+        res.status(500).json({ error: 'Failed to fetch dogs' });
     } catch (err) {
     res.status(500).json({ error: 'Failed to fetch dogs' });
   }
