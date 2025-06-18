@@ -39,15 +39,14 @@ router.get('/me', (req, res) => {
 // POST login (dummy version)
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
-
   const password_hash = bcrypt.hash(password, 10);
 
+  // just use password below in the SQL statements if u want to test (not the hash)
   try {
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
       WHERE email = ? AND password_hash = ?
     `, [email, password_hash]);
-
     const [rows2] = await db.query(`
       SELECT user_id, username, role FROM Users
       WHERE username = ? AND password_hash = ?
