@@ -55,11 +55,12 @@ router.post('/login', async (req, res) => {
       WHERE username = ? AND password_hash = ?
     `, [email, password]);
 
-    // if no users found by email OR username
+    // if no users found by email OR username, return invalid credentials
     if (rows.length === 0 && rows2.length === 0) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
+    // otherwise return the 
     res.json({ message: 'Login successful', user: rows[0] ? rows[0].role : rows2[0].role });
   } catch (error) {
     res.status(500).json({ error: 'Login failed' });
