@@ -53,7 +53,7 @@
           try {
             const res = await fetch('/api/dogs');
             if (!res.ok) {
-              throw new Error(res.);
+              throw new Error(res.error);
             }
             const dogs = await res.json();
             const res2 = await fetch('https://dog.ceo/api/breeds/image/random/'+dogs.length);
@@ -72,6 +72,7 @@
               i++;
             });
           } catch (err) {
+            console.log(err);
           }
         }
         async function callLogin() {
