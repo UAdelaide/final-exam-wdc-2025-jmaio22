@@ -37,6 +37,7 @@
         async function callLogin() {
           const email = document.getElementById('email');
           const password = document.getElementById('password');
+          // if the 
           if (email && email.value && password && password.value) {
             try {
               const response = await fetch('/api/users/login', {
