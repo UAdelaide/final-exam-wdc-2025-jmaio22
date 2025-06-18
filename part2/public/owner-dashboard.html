@@ -99,8 +99,8 @@
 
         async function getDogs() {
           try {
-            const res = await fetch('/api/users/logout');
-            if (!res.ok) throw new Error('Failed to logout: Not logged in');
+            const res = await fetch('/api/users/dogs');
+            if (!res.ok) throw new Error('Failed to get dogs: Not logged in');
             window.location.href = "/";
           } catch (err) {
             error.value = err.message;
