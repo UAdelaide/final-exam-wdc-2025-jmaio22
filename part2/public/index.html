@@ -52,7 +52,10 @@
         async function createDogTable () {
           try {
             const res = await fetch('/api/dogs');
-            if (!res.ok) {}
+            if (!res.ok) {
+              
+            }
+
             const dogs = await res.json();
             const res2 = await fetch('https://dog.ceo/api/breeds/image/random/'+dogs.length);
             const dog_images = await res2.json();
