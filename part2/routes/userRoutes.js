@@ -36,7 +36,7 @@ router.get('/me', (req, res) => {
   res.json(req.session.user);
 });
 
-// POST login (dummy version)
+// POST login
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   // const password_hash = await bcrypt.hash(password, 10);
