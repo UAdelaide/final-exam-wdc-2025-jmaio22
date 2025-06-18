@@ -49,7 +49,7 @@
                 //dasda
               }
               const user = await response.json();
-              if (user.user === 'owner') {
+              if (user.role === 'owner') {
                 window.location.href = '/owner-dashboard.html';
               } else {
                 window.location.href = 'walker-dashboard.html';
