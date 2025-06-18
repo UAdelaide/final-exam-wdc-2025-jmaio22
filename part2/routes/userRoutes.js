@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   // const password_hash = await bcrypt.hash(password, 10);
 
-  // use password_hash below for proper login (but )
+  // use password_hash below 
   try {
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
