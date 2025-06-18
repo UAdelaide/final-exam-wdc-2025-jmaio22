@@ -46,7 +46,7 @@
                 }
               });
               if (!response.ok) {
-                document.getElementById('login-stuff').innertext += 'Login failed!';
+                document.getElementById('login-stuff').innerHTML += 'Login failed!';
                 return ;
               }
               const user = await response.json();
