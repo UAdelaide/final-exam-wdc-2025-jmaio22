@@ -5,6 +5,7 @@ require('dotenv').config();
 const app = express();
 const session = require('express-session');
 const bcrypt = require('bcrypt');
+const db = require('../models/db');
 
 // Middleware
 app.use(express.json());
@@ -28,7 +29,7 @@ app.use(session({
 
 app.post('/auth/login', async function(req, res, next) {
     try {
-        
+
     } catch (err) {
     res.status(500).json({ error: 'Failed to login' });
   }
