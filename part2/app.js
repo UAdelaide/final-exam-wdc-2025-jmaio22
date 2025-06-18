@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(session({
-    secret: 'secret', // in real application i would use process.env.SECRET or something similar, but hardcoded right now to allow tutor testing
+    secret: 'secret', // in real application i would use process.env.SECRET or something similar, but right now hardcoded to allow tutor testing
     resave: false,
     saveUninitialized: true,
     cookie: {
