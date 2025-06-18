@@ -19,7 +19,10 @@ app.use('/api/users', userRoutes);
 app.use(session({
     secret: 'test',
     resave: false,
-
+    saveUninitialised: true,
+    cookie {
+        
+    }
 }));
 
 // Export the app instead of listening here
