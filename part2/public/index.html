@@ -49,10 +49,12 @@
                 }
               });
               if (!response.ok) {
+                // add error to the error-msg div if occurs
                 const error = await response.json();
                 document.getElementById('error-msg').innerHTML = 'Login failed! ' + error.error;
                 return ;
               }
+              // redirect user to correct page depending on login response
               const user = await response.json();
               if (user.role === 'owner') {
                 window.location.href = '/owner-dashboard.html';
