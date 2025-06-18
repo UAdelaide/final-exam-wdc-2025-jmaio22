@@ -105,7 +105,7 @@
             const dognames = await res.json();
             // append list options for each dogname found
             dognames.forEach(name => {
-              document.getElementById('dog-form-groups').innerHTML += '<option value="'+name+'">'+name+'</option>';
+              document.getElementById('dog-form-groups').innerHTML += '<option value="'+name.id+'">'+name.name+'</option>';
             });
           } catch (err) {
             error.value = err.message;
