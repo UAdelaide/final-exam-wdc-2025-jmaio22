@@ -41,8 +41,8 @@ router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   // const password_hash = await bcrypt.hash(password, 10);
 
-  // would use the above password_hash in the queries below to properly hash before sending,
-  // example users in the db not setup for this though as they dont use proper hashes
+  // would use the above password_hash in the queries below to properly hash before searching,
+  // example users in the db are not setup for this though, as they dont use proper hashes
   try {
     // search for users by email
     const [rows] = await db.query(`
