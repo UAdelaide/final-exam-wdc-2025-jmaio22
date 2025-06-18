@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
   // const password_hash = await bcrypt.hash(password, 10);
 
   // would use password_hash below to properly hash before sending,
-
+  // example users in the db not setup for this though so just 
   try {
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
