@@ -61,6 +61,7 @@
             const res2 = await fetch('https://dog.ceo/api/breeds/image/random/'+dogs.length);
             const dog_images = await res2.json();
             let i = 0;
+            // append a row to the table for each dog returned from route
             dogs.forEach(dog => {
               document.getElementById('all-dogs').innerHTML += `
 <tr>
