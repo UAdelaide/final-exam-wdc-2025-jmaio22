@@ -103,8 +103,8 @@
             if (!res.ok) throw new Error('Failed to get dogs: Not logged in');
             const dognames = await res.json();
             // add list options for each dogname found
-            dognames.array.forEach(name => {
-              console.log(name);
+            dognames.forEach(name => {
+              document.getElementById('dog-form-groups').innerHTML += '<option value="'+name+'">'+dogname+'</option>';
             });
             for (let dogname in dognames) {
               console.log(dogname);
