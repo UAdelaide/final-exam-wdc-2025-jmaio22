@@ -4,6 +4,7 @@ require('dotenv').config();
 
 const app = express();
 const session = require('express-session');
+const bcrypt = require('bcrypt');
 
 // Middleware
 app.use(express.json());
@@ -17,7 +18,7 @@ app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
 app.use(session({
-    secret: 'test',
+    secret: 'test', //make dotenv after i worjjjk
     resave: false,
     saveUninitialized: true,
     cookie: {
