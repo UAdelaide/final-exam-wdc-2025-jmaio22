@@ -33,7 +33,7 @@ app.post('/auth/login', async function(req, res, next) {
         if (!user) {
             res.status(404).json({ error: 'User not found' });
         }
-        
+        res.json(user);
     } catch (err) {
     res.status(500).json({ error: 'Failed to login' });
   }
