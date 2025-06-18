@@ -63,7 +63,7 @@ router.post('/login', async (req, res) => {
     // get user that returned valid search
     const user = rows[0] ? rows[0] : rows2[0];
 
-    req.session.user({username: user.username, user})
+    req.session.user({ username: user.username, role: user.role });
 
     // otherwise return the users role, using the row that found the user
     res.json({ message: 'Login successful', user: rows[0] ? rows[0].role : rows2[0].role });
