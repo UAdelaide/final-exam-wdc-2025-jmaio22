@@ -27,15 +27,14 @@
               <strong>Location:</strong> {{ walk.location }}<br>
               <strong>Owner:</strong> {{ walk.owner_name }}
             </p>
-            <button type=button class="btn btn-outline-success" @click="logout">Apply</button>
+            <button type=button class="btn btn-outline-success" @click="applyToWalk(walk.request_id)">Apply</button>
           </div>
         </div>
       </div>
     </div>
     <p v-else>No available walk requests at the moment.</p>
+    <button type=button class="btn btn-primary" @click="logout">Logout</button>
   </div>
-
-  <button type=button class="btn btn-primary" @click="logout">Logout</button>
 
   <script>
     const { createApp, ref, onMounted } = Vue;
