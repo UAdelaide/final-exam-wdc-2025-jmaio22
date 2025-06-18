@@ -41,16 +41,16 @@ router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   // const password_hash = await bcrypt.hash(password, 10);
 
-  // just use password below in the SQL statements if u want to test (not the hash)
+  // use password_hash below for proper login (but )
   try {
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
       WHERE email = ? AND password_hash = ?
-    `, [email, password_hash]);
+    `, [email, password]);
     const [rows2] = await db.query(`
       SELECT user_id, username, role FROM Users
       WHERE username = ? AND password_hash = ?
-    `, [email, password_hash]);
+    `, [email, password]);
 
     if (rows.length === 0 && rows2.length === 0) {
       return res.status(401).json({ error: 'Invalid credentials' });
