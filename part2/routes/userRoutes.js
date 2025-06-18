@@ -85,6 +85,7 @@ router.get('/dogs', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
+  // get all dogs from current session user
   const [dogs] = await db.query(`SELECT * FROM Dogs WHERE owner_id = ${req.session.user.user_id};`);
   const dognames = [];
   for (let dog of dogs) {
