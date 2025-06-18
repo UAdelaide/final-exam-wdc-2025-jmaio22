@@ -29,7 +29,10 @@ app.use(session({
 
 app.post('/auth/login', async function(req, res, next) {
     try {
-        const test = await db.query(`SELECT * FROM Users WHERE username = ${req.body.username};`);
+        const user = await db.query(`SELECT * FROM Users WHERE username = ${req.body.username};`);
+        if (!user) {
+            res.status(500).json({ error: 'Failed to login' });
+        }
     } catch (err) {
     res.status(500).json({ error: 'Failed to login' });
   }
