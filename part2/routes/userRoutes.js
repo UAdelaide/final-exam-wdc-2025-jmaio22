@@ -44,6 +44,7 @@ router.post('/login', async (req, res) => {
   // would use password_hash below to properly hash before sending,
   // example users in the db not setup for this though as they dont use proper hashes
   try {
+    // search for users by email
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
       WHERE email = ? AND password_hash = ?
