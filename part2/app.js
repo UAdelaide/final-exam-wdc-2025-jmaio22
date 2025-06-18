@@ -29,7 +29,7 @@ app.use('/api/users', userRoutes);
 app.get('/api/dogs', async function(req, res, next) {
     try {
         let sqldb;
-        sqldb = await mysql.createConnection({
+        sqldb = await db.createConnection({
         host: '127.0.0.1',
         user: 'root',
         password: '',
