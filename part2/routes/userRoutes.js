@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
+const bcrypt = require('bcrypt');
 
 // GET all users (for admin/testing)
 router.get('/', async (req, res) => {
