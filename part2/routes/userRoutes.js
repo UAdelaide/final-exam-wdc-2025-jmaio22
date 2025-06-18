@@ -40,6 +40,8 @@ router.get('/me', (req, res) => {
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
+  const password_hash = bcrypt.hash(password, 10);
+  
   try {
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
