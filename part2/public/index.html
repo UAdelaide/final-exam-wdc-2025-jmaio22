@@ -89,6 +89,9 @@
             }
           }
         }
+        onMounted(() => {
+          loadWalkRequests();
+        });
         return {
           message: 'Welcome to the Dog Walking Service!',
           callLogin
