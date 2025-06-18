@@ -39,11 +39,10 @@
         async function createDogTable () {
           try {
             const res = await fetch('/api/dogs');
-            if (!res.ok) throw new Error('Failed to get current user: Not logged in');
-            const user = await res.json();
-            return (user);
+            if (!res.ok) {}
+            const dogs = await res.json();
+            
           } catch (err) {
-            error.value = err.message;
           }
         }
         async function callLogin() {
