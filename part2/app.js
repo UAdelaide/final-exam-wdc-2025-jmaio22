@@ -19,7 +19,7 @@ app.use('/api/users', userRoutes);
 app.use(session({
     secret: 'test',
     resave: false,
-    saveUninitialised: true,
+    saveUninitialized: true,
     cookie: {
         maxAge: 1000 * 60 * 60 * 24
     }
