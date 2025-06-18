@@ -24,7 +24,7 @@
           <div class="mb-3">
             <label class="form-label">Dog ID</label>
             <select v-model="form.dog_id" type="number" class="form-control" required>
-              <optgroup label="-- Choose a dog --">
+              <optgroup id="dog-form-groups" label="-- Choose a dog --">
               </optgroup>
             </select>
           </div>
@@ -103,7 +103,7 @@
             if (!res.ok) throw new Error('Failed to get dogs: Not logged in');
             // add list options for each dogname found
             for (let dogname in res) {
-              
+              document.getElementById()
             }
           } catch (err) {
             error.value = err.message;
