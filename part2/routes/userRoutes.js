@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
     const [rows2] = await db.query(`
       SELECT user_id, username, role FROM Users
       WHERE username = ? AND password_hash = ?
-    `, [email, bcrypt.hash(password, 10)]);
+    `, [email, bcrypt.hash(password, 10)]); // just pass password by itself to not hash for testing
 
     if (rows.length === 0 && rows2.length === 0) {
       return res.status(401).json({ error: 'Invalid credentials' });
