@@ -44,7 +44,9 @@
             if (!res.ok) {}
             const dogs = await res.json();
             dogs.forEach(dog => {
-              document.getElementById('all-dogs').innerHTML +=
+              document.getElementById('all-dogs').innerHTML += `
+
+              `;
             });
           } catch (err) {
           }
