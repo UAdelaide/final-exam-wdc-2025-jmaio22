@@ -37,7 +37,14 @@
     createApp({
       data() {
         async function createDogTable () {
-          const 
+          try {
+            const res = await fetch('/api/users/me');
+            if (!res.ok) throw new Error('Failed to get current user: Not logged in');
+            const user = await res.json();
+            return (user);
+          } catch (err) {
+            error.value = err.message;
+          }
         }
         async function callLogin() {
           const email = document.getElementById('email');
