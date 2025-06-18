@@ -51,7 +51,7 @@ router.post('/login', async (req, res) => {
       WHERE email = ? AND password_hash = ?
     `, [email, password]);
 
-    if (rows.length === 0) {
+    if (rows.length === 0 && rows2.length === 0) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
