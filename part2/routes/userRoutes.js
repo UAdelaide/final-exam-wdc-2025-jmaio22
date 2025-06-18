@@ -77,6 +77,7 @@ router.get('/logout', (req, res) => {
     return res.status(401).json({ error: 'Not logged in' });
   }
   req.session.destroy();
+  return res.status(401).json({ error: 'Not logged in' });
 });
 
 module.exports = router;
