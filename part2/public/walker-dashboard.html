@@ -35,6 +35,8 @@
     <p v-else>No available walk requests at the moment.</p>
   </div>
 
+  <button type=button class="btn btn-primary" @click="applyToWalk(walk.request_id)">Apply</button>
+
   <script>
     const { createApp, ref, onMounted } = Vue;
 
