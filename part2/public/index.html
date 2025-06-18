@@ -51,11 +51,13 @@
       data() {
         async function createDogTable () {
           try {
+            // get data from dogs route
             const res = await fetch('/api/dogs');
             if (!res.ok) {
               throw new Error(res);
             }
             const dogs = await res.json();
+            // get images for each dog depending on length of dogs
             const res2 = await fetch('https://dog.ceo/api/breeds/image/random/'+dogs.length);
             const dog_images = await res2.json();
             let i = 0;
